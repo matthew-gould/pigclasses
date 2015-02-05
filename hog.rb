@@ -1,4 +1,4 @@
-class Hog
+class Hog < Game
 
   def initialize
   end
