@@ -56,5 +56,50 @@
       ]
     },
     "timestamp": 1423142356
+  },
+  "Unknown Test Framework": {
+    "coverage": {
+      "/Users/Overlord/src/pig/game.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1423351529
   }
 }
