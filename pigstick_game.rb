@@ -27,12 +27,34 @@ players.times do |x|
         game.get_names(name)
     end
 
-until game.over?
-  name.each do |x|
-    puts "\nIt is now #{x} turn."
-    game.rolling
+puts "Do you want to play pig or hog?"
+puts "1. pig"
+puts "2. hog"
+  y = gets.chomp.downcase
+  game_mode.push y
+
+
+if game_mode[0].include?("pig")
+  until game.over?
+    name.each do |x|
+      puts "\n\nIt is now #{x}'s' turn.\n\n"
+      game.rolling
+    end
+  end
+game.ending_message
+else
+  hog = Hog.new
+  until game.over?
+    name.each do |x|
+      puts "\n\nIt is now #{x}'s' turn.\n\n"
+      puts "How many dice would you like to roll?"
+      x = gets.chomp.to_i
+      hog.rolling(x)
+    end
   end
 end
+
+
 
 
 

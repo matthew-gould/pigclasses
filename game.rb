@@ -6,7 +6,8 @@ require 'pry'
     @get_names = []
     @score_array = []
     @turn_score = 0
-    max_score = 50
+    @max_score = 20
+    @winner = false
   end
 
   def get_names(name)
@@ -23,36 +24,40 @@ require 'pry'
   end
 
   def score
-    (0..@score_array.length).each do |x|
+    (0...@score_array.length).each do |x|
       @score_array[x] += @turn_score
-      puts "\n#{@get_names[x]}, you currently have #{@score_array[x]} points.\n\n"
-        if @score_array[x] >= max_score
-          @winner = x
-          #return over?
+      if @score_array[x] >= @max_score
+          @winner == true
+      else
+        puts "\n#{@get_names[x]}, you currently have #{@score_array[x]} points.\n\n"        
+        return @score_array
         end
       end
   end
 
+  def winner
+    @winner
+  end
+
   def over?
-    if true
-      puts "\n\nWe have a winner!\n\n" 
-      puts "\n\nFinal Scoreboard:\n\n"
-      (0...score_array.length).each do |x|
-        puts "#{player_name[x]}: #{player_scores[x]}"
-      end
+    if @winner == true
+      true
     else
-      return false
+      false
     end
   end
 
-
-  def rolling
-    roll = rand(1..6)
-    roll_once(roll)
+  def ending_message
+    puts "\n\nWe have a winner!\n\n" 
+    puts "\n\nFinal Scoreboard:\n\n"
+    (0...score_array.length).each do |x|
+      puts "#{player_name[x]}: #{player_scores[x]}"
+    end
   end
 
-  def roll_once (roll)
+  def rolling
     loop do
+      roll = rand(1..6)
         if roll == 1
           puts "DOH! You got 0 points for rolling a 1!\n\n"
           return 0
@@ -61,6 +66,7 @@ require 'pry'
           puts "Your turn total so far is #{turn_score}!"
           puts "Would you like to roll again? (y/n)"
           if gets.chomp == "n"
+            score
             return @turn_score
         end
       end
