@@ -3,8 +3,8 @@ class Hog < Game
   def initialize
   end
 
-  def rolling (roll_number)
-  turn_total = 0
+  def rolling(roll_number)
+  turn_score = 0
   dice_roll = []
   
   roll_number.times do
@@ -16,15 +16,13 @@ class Hog < Game
       return 0
       
     else 
-      turn_total += roll 
+      turn_score += roll 
     end
   end
 
-puts "You rolled #{dice_roll} and your total is: #{turn_total}"
+puts "You rolled #{dice_roll} and your total is: #{turn_score}"
   puts "----------------------------------------"
-  return turn_total
-end
-
-
-
+  @score
+  return turn_score
+  end
 end

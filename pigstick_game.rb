@@ -1,5 +1,3 @@
-# require 'simplecov'
-# SimpleCov.start
 require './game'
 require './pig'
 require './hog'
@@ -34,14 +32,13 @@ puts "2. hog"
   game_mode.push y
 
 
-if game_mode[0].include?("pig")
+if game_mode[0].include?("1")
   until game.over?
     name.each do |x|
       puts "\n\nIt is now #{x}'s' turn.\n\n"
       game.rolling
     end
   end
-game.ending_message
 else
   hog = Hog.new
   until game.over?
@@ -53,15 +50,5 @@ else
     end
   end
 end
-
-
-
-
-
- # puts "\nWhich game would you like to play?"
- # puts "1) Pig\n2) Hog"
- #  game_mode = gets.chomp.downcase
-
- #  if game_mode = pig
 
 ###############################################

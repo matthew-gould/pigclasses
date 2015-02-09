@@ -42,6 +42,7 @@ require 'pry'
   def over?
     if @winner == true
       true
+      @ending_message
     else
       false
     end
@@ -63,13 +64,25 @@ require 'pry'
           return 0
         else
           @turn_score += roll
+        end
           puts "Your turn total so far is #{turn_score}!"
           puts "Would you like to roll again? (y/n)"
           if gets.chomp == "n"
-            score
+            @score
             return @turn_score
         end
-      end
     end
   end
-end
+
+    # def pig_turn
+    #   (0...@score_array.length).each do |x|
+    #     puts "\n#{get_names[x]}, you currently have #{score_array[x]} points."
+    #     score_array[x] += rolling
+    #     puts "You now have #{score_array[x]} points."
+    #     puts "\n_____________________________________________________\n\n" 
+    #   end
+    #   if check_winner(player_scores) == true
+    #     break
+    #   end
+    # end
+  end
